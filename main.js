@@ -6,7 +6,7 @@ function playerSelection(){
     while(!checkPlayerSelection(selectedWeapon)){
         selectedWeapon = getInput();
     }
-    return true;
+    return selectedWeapon;
 }
 
 function getInput(){
@@ -26,4 +26,6 @@ function checkPlayerSelection(selection){
     return false;
 }
 
-playerSelection();
+function computerSelection(){
+
+}
