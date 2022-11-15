@@ -5,6 +5,7 @@ function playerSelection(){
     let selectedWeapon = getInput();
 
     while(!checkPlayerSelection(selectedWeapon)){
+        alert("Wrong input, try again!");
         selectedWeapon = getInput();
     }
     return selectedWeapon;
@@ -52,7 +53,7 @@ function playRound(){
             case 'scissors':
                 return "Rock destroys the scissors, Player wins!";
         }
-    }else if(playerWeapon == 'paper'){
+    } else if(playerWeapon == 'paper') {
         switch(computerWeapon){
             case 'rock':
                 return "Paper wraps the rock, Player wins!";
@@ -61,7 +62,7 @@ function playRound(){
             case 'scissors':
                 return "Scissors cut the paper, Computer wins!";
         }
-    }else if(playerWeapon == 'scissors'){
+    } else if(playerWeapon == 'scissors') {
         switch(computerWeapon){
             case 'rock':
                 return "Rock destroys the scissors, Computer wins!";
@@ -76,3 +77,31 @@ function playRound(){
     }
 }
 
+// Function that plays an entire game until someone hits x (pointsAmount) wins.
+function game(pointsAmount){
+    let playerPoints, computerPoints;
+    let roundResult = undefined;
+    playerPoints = computerPoints = 0;
+    
+    // Repeating the round until someone hits the winning score (pointsAmount).
+    while (playerPoints != pointsAmount && computerPoints != pointsAmount){
+        roundResult = playRound();
+        console.log(roundResult);
+        if (roundResult.includes("Computer")){
+            computerPoints ++;
+        } else if(roundResult.includes("Player")) {
+            playerPoints ++;
+        }
+        console.log(`Current score: Player (${playerPoints}) - Computer (${computerPoints})`);
+    }
+
+    if (playerPoints == pointsAmount){
+        console.log("Player wins, Congratulations !");
+    } else {
+        console.log("Computer wins, it happens..");
+    }
+
+    console.log("The game has ended!");
+}
+
+game(3);
