@@ -1,7 +1,17 @@
 // Rock, Paper, Scissors game code
 
 function playerSelection(){
-    let selectedWeapon = prompt(`Choose your weapon!\n(Rock / Paper / Scissors)`);
+    let selectedWeapon = getInput();
+
+    while(!checkPlayerSelection(selectedWeapon)){
+        selectedWeapon = getInput();
+    }
+    return true;
+}
+
+function getInput(){
+    selectedWeapon = prompt(`Choose your weapon!\n(Rock / Paper / Scissors)`).toLowerCase();
+    return selectedWeapon;
 }
 
 function checkPlayerSelection(selection){
