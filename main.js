@@ -37,3 +37,42 @@ function computerSelection(){
     // Returns random value from the array.
     return weapons[randomNumber];
 }
+
+// Function plays one round between player and computer.
+function playRound(){
+    let playerWeapon = playerSelection();
+    let computerWeapon = computerSelection();
+
+    if(playerWeapon == 'rock'){
+        switch(computerWeapon){
+            case 'rock':
+                return "It's a Tie game!";
+            case 'paper':
+                return "Paper wraps the rock, Computer wins!";
+            case 'scissors':
+                return "Rock destroys the scissors, Player wins!";
+        }
+    }else if(playerWeapon == 'paper'){
+        switch(computerWeapon){
+            case 'rock':
+                return "Paper wraps the rock, Player wins!";
+            case 'paper':
+                return "It's a Tie game!";
+            case 'scissors':
+                return "Scissors cut the paper, Computer wins!";
+        }
+    }else if(playerWeapon == 'scissors'){
+        switch(computerWeapon){
+            case 'rock':
+                return "Rock destroys the scissors, Computer wins!";
+            case 'paper':
+                return "Scissors cut the paper, Player wins!";
+            case 'scissors':
+                return "It's a Tie game!";
+        }
+    } else {
+        alert("Oops, something went wrong!");
+        return false;
+    }
+}
+
