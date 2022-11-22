@@ -13,3 +13,7 @@
     font-family: 'Fredoka One', cursive;
 }
 
+img{
+    aspect-ratio: 1/1;
+    width: 120px;
+}
