@@ -20,18 +20,22 @@ body{
 
 .heading{
     width: 100vw;
-    height: 15vh;
-    background: #1b1b21;
+    height: 20vh;
+    background: #19191a;
     display: flex;
     align-items: center;
     justify-content: space-around;
     color: gold;
     text-shadow: 4px 4px 2px purple;
+    border-image: linear-gradient(to right, gold, purple) 1;
+    border-width: 0 0 5px 0;
+    border-style: solid;
 }
 
 h1{
-    font-size: 3.15rem;
+    font-size: 3.75rem;
 }
+
 
 img{
     aspect-ratio: 1/1;
