@@ -13,6 +13,26 @@
     font-family: 'Fredoka One', cursive;
 }
 
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.heading{
+    width: 100vw;
+    height: 15vh;
+    background: #1b1b21;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: gold;
+    text-shadow: 4px 4px 2px purple;
+}
+
+h1{
+    font-size: 3.15rem;
+}
+
 img{
     aspect-ratio: 1/1;
     width: 120px;
