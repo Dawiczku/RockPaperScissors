@@ -36,6 +36,11 @@ h1{
     font-size: 3.75rem;
 }
 
+main{
+    display: flex;
+    justify-content: center;
+}
+
 
 img{
     aspect-ratio: 1/1;
