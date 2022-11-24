@@ -44,6 +44,20 @@ main{
     height: 75vh;
 }
 
+.game-info{
+    color: orange;
+    text-shadow: 2px 2px 2px purple;
+    text-align: center;
+}
+
+.winner{
+    font-size: 2.75rem;
+}
+
+.feedback{
+    font-size: 2rem;
+}
+
 img{
     aspect-ratio: 1/1;
     width: 120px;
