@@ -40,7 +40,6 @@ h1{
 main{
     display: flex;
     justify-content: center;
-    align-items: center;
     height: 75vh;
 }
 
@@ -58,7 +57,19 @@ main{
     font-size: 2rem;
 }
 
+.choices{
+    display: flex;
+    justify-content: space-around;
+    color: white;
+}
+
+.choices > div > p{
+    text-align: center;
+    font-size: 1.25rem;
+}
+
 img{
     aspect-ratio: 1/1;
     width: 120px;
+    filter: invert(100%);
 }
