@@ -16,7 +16,6 @@ body,
 .heading,
 .choices,
 .btn,
-.btn:active,
 .game-info{
     color: white;
 }
@@ -61,12 +60,12 @@ main,
     height: 15vh;
     align-items: center;
     text-shadow: 0 0 7px purple,
-    0 0 12px purple,
-    0 0 17px purple,
-    0 0 22px purple,
-    0 0 27px purple,
-    0 0 32px purple,
-    0 0 37px purple;
+                0 0 12px purple,
+                0 0 17px purple,
+                0 0 22px purple,
+                0 0 27px purple,
+                0 0 32px purple,
+                0 0 37px purple;
     border-image: linear-gradient(to right, purple, coral) 1;
     border-style: solid;
     border-width: 0 0 5px 0;    
@@ -136,12 +135,25 @@ main{
 .btn:hover{
     scale: 1.1;
     cursor: grab;
+    color: coral;
+    border: 3px solid coral;
+    box-shadow: 0 0 5px coral,
+    0 0 10px coral,
+    0 0 15px coral,
+    0 0 20px coral,
+    0 0 25px coral;
+    -webkit-text-stroke: 1px purple;
 }
 
 .btn:active{
-    border: 7px solid coral;
-    box-shadow: 0 0 30px coral;
-    -webkit-text-stroke: 1px white;
+    color: gold;
+    border: 3px solid gold;
+    box-shadow: 0 0 5px gold,
+    0 0 10px gold,
+    0 0 15px gold,
+    0 0 20px gold,
+    0 0 25px gold,
+    0 0 30px gold;
     transition: 0.05s;
 }
 
