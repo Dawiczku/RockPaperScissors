@@ -1,5 +1,16 @@
 // Rock, Paper, Scissors game code
 
+const rock = document.querySelector("[data-button='rock']");
+const paper = document.querySelector("[data-button='paper']");
+const scissors = document.querySelector("[data-button='scissors']");
+const playerChoice = document.getElementsByClassName("player-choice");
+const computerChoice = document.getElementsByClassName("computer-choice");
+const playerScore = document.getElementsByClassName("player");
+const computerScore = document.getElementsByClassName("computer");
+const gameWinner = document.getElementsByClassName("winner");
+const roundWinner = document.getElementsByClassName("feedback");
+
+
 // Function returns user's selected weapon if valid.
 function playerSelection(){
     let selectedWeapon = getInput();
@@ -104,4 +115,3 @@ function game(pointsAmount){
     console.log("The game has ended!");
 }
 
-game(3);
