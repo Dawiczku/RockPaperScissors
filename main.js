@@ -1,5 +1,6 @@
 // Rock, Paper, Scissors game code
 
+// Declared the DOM elements
 const rock = document.querySelector("[data-button='rock']");
 const paper = document.querySelector("[data-button='paper']");
 const scissors = document.querySelector("[data-button='scissors']");
@@ -10,35 +11,26 @@ const computerScore = document.getElementsByClassName("computer");
 const gameWinner = document.getElementsByClassName("winner");
 const roundWinner = document.getElementsByClassName("feedback");
 
-
-// Function returns user's selected weapon if valid.
-function playerSelection(){
-    let selectedWeapon = getInput();
-
-    while(!checkPlayerSelection(selectedWeapon)){
-        alert("Wrong input, try again!");
-        selectedWeapon = getInput();
+// Event listeners
+rock.addEventListener('click', playRound('rock'));
+paper.addEventListener('click', playRound('paper'));
+scissors.addEventListener('click', playRound('scissors'));
+//
+function playerSelection(selection){
+    switch(selection){
+        case 'rock':
+            return 'rock';
+        case 'paper':
+            return 'paper';
+        case 'scissors':
+            return 'scissors';
     }
-    return selectedWeapon;
-}
+} 
 
 // Function asks for and returns user's input.
 function getInput(){
     selectedWeapon = prompt(`Choose your weapon!\n(Rock / Paper / Scissors)`).toLowerCase();
     return selectedWeapon;
-}
-
-// Function checks if choice is valid.
-function checkPlayerSelection(selection){
-    switch(selection){
-        case 'rock':
-            return true;
-        case 'paper':
-            return true;
-        case 'scissors':
-            return true;
-    }
-    return false;
 }
 
 // Function randomly chooses computer's weapon.
@@ -51,8 +43,8 @@ function computerSelection(){
 }
 
 // Function plays one round between player and computer.
-function playRound(){
-    let playerWeapon = playerSelection();
+function playRound(selection){
+    let playerWeapon = playerSelection(selection);
     let computerWeapon = computerSelection();
 
     if(playerWeapon == 'rock'){
@@ -89,29 +81,29 @@ function playRound(){
 }
 
 // Function that plays an entire game until someone hits x (pointsAmount) wins.
-function game(pointsAmount){
-    let playerPoints, computerPoints;
-    let roundResult = undefined;
-    playerPoints = computerPoints = 0;
+// function game(pointsAmount){
+//     let playerPoints, computerPoints;
+//     let roundResult = undefined;
+//     playerPoints = computerPoints = 0;
     
-    // Repeating the round until someone hits the winning score (pointsAmount).
-    while (playerPoints != pointsAmount && computerPoints != pointsAmount){
-        roundResult = playRound();
-        console.log(roundResult);
-        if (roundResult.includes("Computer")){
-            computerPoints ++;
-        } else if(roundResult.includes("Player")) {
-            playerPoints ++;
-        }
-        console.log(`Current score: Player (${playerPoints}) - Computer (${computerPoints})`);
-    }
+//     // Repeating the round until someone hits the winning score (pointsAmount).
+//     while (playerPoints != pointsAmount && computerPoints != pointsAmount){
+//         roundResult = playRound();
+//         console.log(roundResult);
+//         if (roundResult.includes("Computer")){
+//             computerPoints ++;
+//         } else if(roundResult.includes("Player")) {
+//             playerPoints ++;
+//         }
+//         console.log(`Current score: Player (${playerPoints}) - Computer (${computerPoints})`);
+//     }
 
-    if (playerPoints == pointsAmount){
-        console.log("Player wins, Congratulations !");
-    } else {
-        console.log("Computer wins, it happens..");
-    }
+//     if (playerPoints == pointsAmount){
+//         console.log("Player wins, Congratulations !");
+//     } else {
+//         console.log("Computer wins, it happens..");
+//     }
 
-    console.log("The game has ended!");
-}
+//     console.log("The game has ended!");
+// }
 
