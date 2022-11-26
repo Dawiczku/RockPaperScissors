@@ -1,20 +1,20 @@
 // Rock, Paper, Scissors game code
 
 // Declared the DOM elements
-const rock = document.querySelector("[data-button='rock']");
+const rock = document.querySelector('[data-button="rock"]');
 const paper = document.querySelector("[data-button='paper']");
 const scissors = document.querySelector("[data-button='scissors']");
-const playerChoice = document.getElementsByClassName("player-choice");
-const computerChoice = document.getElementsByClassName("computer-choice");
-const playerScore = document.getElementsByClassName("player");
-const computerScore = document.getElementsByClassName("computer");
-const gameWinner = document.getElementsByClassName("winner");
-const roundWinner = document.getElementsByClassName("feedback");
+const playerChoice = document.getElementById("player-choice");
+const computerChoice = document.getElementById("computer-choice");
+const playerScore = document.getElementById("player");
+const computerScore = document.getElementById("computer");
+const gameWinner = document.getElementById("winner");
+const roundWinner = document.getElementById("feedback");
 
-// Event listeners
-rock.addEventListener('click', playRound('rock'));
-paper.addEventListener('click', playRound('paper'));
-scissors.addEventListener('click', playRound('scissors'));
+// Declare variables
+let computerPoints = 0;
+let playerPoints = 0;
+
 //
 function playerSelection(selection){
     switch(selection){
@@ -25,12 +25,6 @@ function playerSelection(selection){
         case 'scissors':
             return 'scissors';
     }
-} 
-
-// Function asks for and returns user's input.
-function getInput(){
-    selectedWeapon = prompt(`Choose your weapon!\n(Rock / Paper / Scissors)`).toLowerCase();
-    return selectedWeapon;
 }
 
 // Function randomly chooses computer's weapon.
@@ -50,29 +44,38 @@ function playRound(selection){
     if(playerWeapon == 'rock'){
         switch(computerWeapon){
             case 'rock':
-                return "It's a Tie game!";
+                roundWinner.textContent = "It's a Tie game!";
+                break;
             case 'paper':
-                return "Paper wraps the rock, Computer wins!";
+                roundWinner.textContent = "Paper wraps the rock, Computer wins!";
+                break;
             case 'scissors':
-                return "Rock destroys the scissors, Player wins!";
+                roundWinner.textContent = "Rock destroys the scissors, Player wins!";
+                break;
         }
     } else if(playerWeapon == 'paper') {
         switch(computerWeapon){
             case 'rock':
-                return "Paper wraps the rock, Player wins!";
+                roundWinner.textContent = "Paper wraps the rock, Player wins!";
+                break;
             case 'paper':
-                return "It's a Tie game!";
+                roundWinner.textContent =  "It's a Tie game!";
+                break;
             case 'scissors':
-                return "Scissors cut the paper, Computer wins!";
+                roundWinner.textContent =  "Scissors cut the paper, Computer wins!";
+                break;
         }
     } else if(playerWeapon == 'scissors') {
         switch(computerWeapon){
             case 'rock':
-                return "Rock destroys the scissors, Computer wins!";
+                roundWinner.textContent =  "Rock destroys the scissors, Computer wins!";
+                break;
             case 'paper':
-                return "Scissors cut the paper, Player wins!";
+                roundWinner.textContent =  "Scissors cut the paper, Player wins!";
+                break;
             case 'scissors':
-                return "It's a Tie game!";
+                roundWinner.textContent =  "It's a Tie game!";
+                break;
         }
     } else {
         alert("Oops, something went wrong!");
@@ -80,30 +83,8 @@ function playRound(selection){
     }
 }
 
-// Function that plays an entire game until someone hits x (pointsAmount) wins.
-// function game(pointsAmount){
-//     let playerPoints, computerPoints;
-//     let roundResult = undefined;
-//     playerPoints = computerPoints = 0;
-    
-//     // Repeating the round until someone hits the winning score (pointsAmount).
-//     while (playerPoints != pointsAmount && computerPoints != pointsAmount){
-//         roundResult = playRound();
-//         console.log(roundResult);
-//         if (roundResult.includes("Computer")){
-//             computerPoints ++;
-//         } else if(roundResult.includes("Player")) {
-//             playerPoints ++;
-//         }
-//         console.log(`Current score: Player (${playerPoints}) - Computer (${computerPoints})`);
-//     }
-
-//     if (playerPoints == pointsAmount){
-//         console.log("Player wins, Congratulations !");
-//     } else {
-//         console.log("Computer wins, it happens..");
-//     }
-
-//     console.log("The game has ended!");
-// }
+// Event listeners
+rock.addEventListener('click', () => playRound('rock'));
+paper.addEventListener('click', () => playRound('paper'));
+scissors.addEventListener('click', () => playRound('scissors'));
 
