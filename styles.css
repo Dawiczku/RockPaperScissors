@@ -79,10 +79,6 @@ h2{
     margin-top: 10px;
 }
 
-.feedback{
-    margin: 0;
-}
-
 .game-info > *{
     padding: 10px;
 }
@@ -111,13 +107,14 @@ main{
     margin-top: 40px;
 }
 
-.winner,
+#winner,
 .choices > p{
     font-size: 2.75rem;
 }
 
-.feedback{
-    font-size: 2rem;
+#feedback{
+    font-size: 1.75rem;
+    margin: 0;
 }
 
 .buttons{
