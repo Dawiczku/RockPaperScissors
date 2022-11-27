@@ -46,10 +46,21 @@ function setPlayersChoice(playerChoice, compChoice){
     computerChoiceScreen.src = `images/${compChoice}.svg`;
 }
 
+function checkWinner(playerPts, compPts){
+    if(playerPts === 5){
+        gameWinner.textContent = "Player wins, congratulations !";
+        return true;
+    } else if (compPts === 5) {
+        gameWinner.textContent = "Computer wins, you could've done better.";
+        return true;
+    }
+}
+
 // Function plays one round between player and computer.
 function playRound(selection){
     let playerWeapon = playerSelection(selection);
     let computerWeapon = computerSelection();
+    gameWinner.textContent = "Who's gonna win ?";
 
     if(playerWeapon == 'rock'){
         switch(computerWeapon){
@@ -111,10 +122,11 @@ function playRound(selection){
                 setPlayersChoice(playerWeapon, computerWeapon);
                 break;
         }
-    } else {
-        alert("Oops, something went wrong!");
-        return false;
     }
+    checkWinner(playerPoints, computerPoints);
+        if(checkWinner(playerPoints, computerPoints)){
+            playerPoints = computerPoints = 0;
+        }
 }
 
 // Event listeners
