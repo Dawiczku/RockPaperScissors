@@ -48,30 +48,36 @@ function playRound(selection){
                 break;
             case 'paper':
                 roundWinner.textContent = "Paper wraps the rock, Computer wins!";
+                computerPoints ++;
                 break;
             case 'scissors':
                 roundWinner.textContent = "Rock destroys the scissors, Player wins!";
+                playerPoints ++;
                 break;
         }
     } else if(playerWeapon == 'paper') {
         switch(computerWeapon){
             case 'rock':
                 roundWinner.textContent = "Paper wraps the rock, Player wins!";
+                playerPoints ++;
                 break;
             case 'paper':
                 roundWinner.textContent =  "It's a Tie game!";
                 break;
             case 'scissors':
                 roundWinner.textContent =  "Scissors cut the paper, Computer wins!";
+                computerPoints ++;
                 break;
         }
     } else if(playerWeapon == 'scissors') {
         switch(computerWeapon){
             case 'rock':
                 roundWinner.textContent =  "Rock destroys the scissors, Computer wins!";
+                computerPoints ++;
                 break;
             case 'paper':
                 roundWinner.textContent =  "Scissors cut the paper, Player wins!";
+                playerPoints ++;
                 break;
             case 'scissors':
                 roundWinner.textContent =  "It's a Tie game!";
