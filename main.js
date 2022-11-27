@@ -6,8 +6,8 @@ const paper = document.querySelector("[data-button='paper']");
 const scissors = document.querySelector("[data-button='scissors']");
 const playerChoice = document.getElementById("player-choice");
 const computerChoice = document.getElementById("computer-choice");
-const playerScore = document.getElementById("player");
-const computerScore = document.getElementById("computer");
+const playerScoreScreen = document.getElementById("player");
+const computerScoreScreen = document.getElementById("computer");
 const gameWinner = document.getElementById("winner");
 const roundWinner = document.getElementById("feedback");
 
@@ -36,6 +36,11 @@ function computerSelection(){
     return weapons[randomNumber];
 }
 
+function setScreenScore(playerPts, compPts){
+    playerScoreScreen.textContent = `Player: ${playerPts}`;
+    computerScoreScreen.textContent = `Computer: ${compPts}`;
+}
+
 // Function plays one round between player and computer.
 function playRound(selection){
     let playerWeapon = playerSelection(selection);
@@ -45,14 +50,17 @@ function playRound(selection){
         switch(computerWeapon){
             case 'rock':
                 roundWinner.textContent = "It's a Tie game!";
+                setScreenScore(playerPoints, computerPoints);
                 break;
             case 'paper':
                 roundWinner.textContent = "Paper wraps the rock, Computer wins!";
                 computerPoints ++;
+                setScreenScore(playerPoints, computerPoints);
                 break;
             case 'scissors':
                 roundWinner.textContent = "Rock destroys the scissors, Player wins!";
                 playerPoints ++;
+                setScreenScore(playerPoints, computerPoints);
                 break;
         }
     } else if(playerWeapon == 'paper') {
@@ -60,13 +68,16 @@ function playRound(selection){
             case 'rock':
                 roundWinner.textContent = "Paper wraps the rock, Player wins!";
                 playerPoints ++;
+                setScreenScore(playerPoints, computerPoints);
                 break;
             case 'paper':
                 roundWinner.textContent =  "It's a Tie game!";
+                setScreenScore(playerPoints, computerPoints);
                 break;
             case 'scissors':
                 roundWinner.textContent =  "Scissors cut the paper, Computer wins!";
                 computerPoints ++;
+                setScreenScore(playerPoints, computerPoints);
                 break;
         }
     } else if(playerWeapon == 'scissors') {
@@ -74,13 +85,16 @@ function playRound(selection){
             case 'rock':
                 roundWinner.textContent =  "Rock destroys the scissors, Computer wins!";
                 computerPoints ++;
+                setScreenScore(playerPoints, computerPoints);
                 break;
             case 'paper':
                 roundWinner.textContent =  "Scissors cut the paper, Player wins!";
                 playerPoints ++;
+                setScreenScore(playerPoints, computerPoints);
                 break;
             case 'scissors':
                 roundWinner.textContent =  "It's a Tie game!";
+                setScreenScore(playerPoints, computerPoints);
                 break;
         }
     } else {
