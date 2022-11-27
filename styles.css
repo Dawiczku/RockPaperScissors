@@ -159,3 +159,8 @@ img{
     width: 120px;
     filter: invert(100%);
 }
+
+#player,
+#computer{
+    padding: 10px;
+}
