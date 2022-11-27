@@ -14,6 +14,7 @@ const roundWinner = document.getElementById("feedback");
 // Declare variables
 let computerPoints = 0;
 let playerPoints = 0;
+let roundEnded = false;
 
 //
 function playerSelection(selection){
@@ -49,9 +50,23 @@ function setPlayersChoice(playerChoice, compChoice){
 function checkWinner(playerPts, compPts){
     if(playerPts === 5){
         gameWinner.textContent = "Player wins, congratulations !";
+        gameWinner.style = `text-shadow: 0 0 2px coral,
+                                                0 0 4px white,
+                                                0 0 6px coral,
+                                                0 0 8px coral,
+                                                0 0 10px coral,
+                                                0 0 12px coral,
+                                                0 0 14px coral;`
         return true;
     } else if (compPts === 5) {
         gameWinner.textContent = "Computer wins, you could've done better.";
+        gameWinner.style = `text-shadow: 0 0 2px coral,
+                                                  0 0 4px white,
+                                                  0 0 6px coral,
+                                                  0 0 8px coral,
+                                                  0 0 10px coral,
+                                                  0 0 12px coral,
+                                                  0 0 14px coral;`
         return true;
     }
 }
@@ -61,6 +76,15 @@ function playRound(selection){
     let playerWeapon = playerSelection(selection);
     let computerWeapon = computerSelection();
     gameWinner.textContent = "Who's gonna win ?";
+    if(roundEnded){
+        gameWinner.style = `text-shadow:  0 0 4px purple,
+                                          0 0 6px purple,
+                                          0 0 8px purple,
+                                          0 0 10px purple,
+                                          0 0 12px purple,
+                                          0 0 14px purple;`
+        roundEnded = false;
+    }
 
     if(playerWeapon == 'rock'){
         switch(computerWeapon){
@@ -126,6 +150,7 @@ function playRound(selection){
     checkWinner(playerPoints, computerPoints);
         if(checkWinner(playerPoints, computerPoints)){
             playerPoints = computerPoints = 0;
+            roundEnded = true;
         }
 }
 
